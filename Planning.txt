@@ -1,0 +1,68 @@
+Theme: Transportation
+Car go BRRRRRRRRRRR
+Driver location + max radius
+Post-ordeal account rating
+Target audience: college students
+Verification API?
+Match schedules/locations
+
+Potential Features:
+Leaderboard
+Trust Scores
+Hidden?
+Unscheduled rides
+
+
+CONTROL LOOP:
+    Initialization:
+Open website
+Verify student status
+Get location
+Input Schedule
+Set Preferences
+Driving dates
+Car ownership status
+OOTW radius
+Can Contact Me in Emergencies (Toggleable after ride?)
+
+Totally not pirated swift tutorial/book https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html 
+
+    Main Loop:
+Weekly planning
+Find a ride to school for each day of the week
+Assign ratings of passengers and drivers
+
+
+Technical
+    Front-end:
+Login
+Selection: driver or rider 
+List of profiles that are compatible
+
+
+
+Algorithm Design:
+
+Def getDist() // Returns the distance between two points
+
+// Always called from perspective 
+Def getMatches(radius, time, address, direction) // Returns matches
+{
+    
+}
+
+Def search(driveOrRide, time, location) // Returns all users that match criteria
+{
+    If is not Driving {
+    Matches = []
+
+        For all drivers {
+            matches [i] = getMatches()
+}
+
+Intersection = []
+intersection = intersectionOf(matches)
+}
+
+
+}
