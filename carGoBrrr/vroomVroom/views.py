@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth import logout
 
 
 from .models import VroomUser, Ride
@@ -28,3 +29,7 @@ def riders(request):
 # Driver
 def drivers(request):
     return render(request, '../design/driver/driverMain.html')
+
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
