@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here
 # Login page
 def index(request):
-    return HttpResponse("This is the login page.  It will be replaced with a render.  Someone change this in carGoBrrr/vroomVroom/views.py")
+    return render(request, '../design/login/login.html')
 
 # Session Info
 def askInfo(request):
