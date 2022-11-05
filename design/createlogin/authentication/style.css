@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 .authentication-page {
     width: 50vw;
-    padding: 10vw 0 0;
+    padding: 5vw 0 ;
     margin: auto;
 }
 .authentication-page .form .authentication {
