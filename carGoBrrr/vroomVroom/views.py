@@ -11,21 +11,20 @@ def index(request):
 
 # Session Info
 def askInfo(request):
-    return HttpResponse("This is the askInfo page.  It will be replaced with a render.  Some change this in carGoBrrr/vroomVroom/views.py")
+    return render(request, '../design/askInfo/askInfo.html')
 
 # Create Account
 def createAccount(request):
-    return HttpResponse("This is the createAccount page.  It will be replaced with a render.  Some change this in carGoBrrr/vroomVroom/views.py")
+    return render(request, '../design/createLogin/createLoginInfo/createLoginInfo.html')
 
 # Define account info
 def profileInfo(request):
-    return HttpResponse("This is the profileInfo page.  It will be replaced with a render.  Some change this in carGoBrrr/vroomVroom/views.py")
+    return render(request, '../design/createLogin/profileInfo/profileInfo.html')
 
 # Rider
 def riders(request):
-    return HttpResponse("This is the riders page.  It will be replaced with a render.  Some change this in carGoBrrr/vroomVroom/views.py")
+    return render(request, '../design/rider/rider.html')
 
 # Driver
 def drivers(request):
-    return HttpResponse("This is the driver page.  It will be replaced with a render.  Some change this in carGoBrrr/vroomVroom/views.py")
-
+    return render(request, '../design/driver/driverMain.html')
