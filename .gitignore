@@ -1,7 +1,12 @@
+carGoBrrr/vroomVroom/migrations/
+carGoBrrr/vroomVroom/migrations/*
+
 # VS Code files
 .vscode/
 
 # Byte-compiled / optimized / DLL files
+*.pyc
+*/__pycache__/
 __pycache__/
 *.py[cod]
 *$py.class
