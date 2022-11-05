@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'vroomvroom/styleCLi.css' %}">
+    <title> Create Login </title>
+</head>
+<body>
+    <div class="createLoginInfo-page">
+        <div class="form">
+            <div class="createLoginInfo">
+                <div class="form-header">
+                    <h3>Create Login</h3>
+                </div>
+            </div>
+            <hr/>
+            <form class="form-body">
+                <p>What username would you like to use?</p>
+                <input type="text" placeholder="Username"/>
+                <p>What password would you like to use?</p>
+                <input type="password" placeholder="Password"/>
+                <p>Please confirm your password</p>
+                <input type="password" placeholder="Password"/>
+                <p><button>submit</button></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
