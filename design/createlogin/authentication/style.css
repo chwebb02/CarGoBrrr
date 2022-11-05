@@ -1,22 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 .authentication-page {
-    width: 50%;
-    padding: 8% 0 0;
+    width: 50vw;
+    padding: 10vw 0 0;
     margin: auto;
 }
 .authentication-page .form .authentication {
     margin-top: -31px;
     margin-bottom: 26px;
-}
-.form {
-    position: relative;
-    z-index: 1;
-    background: #FFFFFF;
-    max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form {
     position: relative;
@@ -54,11 +44,16 @@
     transition: all 0.3 ease;
     cursor: pointer;
 }
-
 body {
     background-color: #328f8a;
     background-image: linear-gradient(90deg,#355070,#6D597A);
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 600px) {
+    .authentication-page {
+        width: 300px;
+    }
 }

@@ -1,20 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 .login-page {
-    width: 50%;
-    padding: 8% 0 0;
-    margin: 0 auto 100%;
+    width: 50vw;
+    padding: 10vw 0 0;
+    margin: auto;
 }
 .login-page .form .login {
-    margin-top: -5%;
-    margin-bottom: 5%;
+    margin-top: -31px;
+    margin-bottom: 26px;
 }
 .form {
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 100%;
-    margin: 0 auto 100%;
-    padding: 10%;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -55,4 +55,10 @@ body {
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 600px) {
+    .authentication-page {
+        width: 300px;
+    }
 }
