@@ -11,8 +11,7 @@ def index(request):
 
 # Session Info
 def askInfo(request):
-    return render(request,'vroomvroom/createLoginInfo/createLoginInfo.html')
-    #return HttpResponse("This is the askInfo page.  It will be replaced with a render.  Some change this in carGoBrrr/vroomVroom/views.py")
+    return HttpResponse("This is the askInfo page.  It will be replaced with a render.  Some change this in carGoBrrr/vroomVroom/views.py")
 
 # Create Account
 def createAccount(request):
