@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'login/style.css' %}">
     <title> Login Page </title>
 </head>
+
 <body>
     <div class="login-page">
         <div class="form">
@@ -15,14 +17,17 @@
                     <p>Please enter your information to login.</p>
                 </div>
             </div>
-            <hr/>
-            <form class="login-form">
-                <input type="text" placeholder="Username"/>
-                <input type="password" placeholder="Password"/>
-                <button>login</button>
+            <hr />
+            <form class="login-form" method="post">
+                {% csrf_token %}
+                <input id="username" type="text" name="username" value="{{ username }}" placeholder="Username"  maxlength=64>
+                <input id="password" type="password" name="password" value="{{ password }}" placeholder="Password"  maxlength=128>
+                <input type="submit" value="login">
+                <!--<button>login</button>-->
                 <p class="message"><a href="#">Create an account</a></p>
             </form>
         </div>
     </div>
 </body>
+
 </html>
