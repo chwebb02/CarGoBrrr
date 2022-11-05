@@ -11,4 +11,4 @@ class Rides(models.Model):
     destination = models.charField(max_length=100)
     current = models.charField(max_length=100)
     time = models.DateTimeField()
-    spots = models.PositiveSmallIntegerField
+    spots = models.PositiveSmallIntegerField()
