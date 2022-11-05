@@ -7,7 +7,8 @@ from .models import VroomUser, Ride
 # Create your views here
 # Login page
 def index(request):
-    return HttpResponse("This is the login page.  It will be replaced with a render.  Someone change this in carGoBrrr/vroomVroom/views.py")
+    return render(request,'vroomvroom/index.html')
+    #return HttpResponse("This is the login page.  It will be replaced with a render.  Someone change this in carGoBrrr/vroomVroom/views.py")
 
 # Session Info
 def askInfo(request):
