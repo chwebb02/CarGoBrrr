@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-from .models import VroomUser, Rides
+from .models import VroomUser, Ride
 
 # Create your views here
 # Login page
