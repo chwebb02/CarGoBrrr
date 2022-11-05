@@ -1,22 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 .emailConfirmation-page {
-    width: 360px;
-    padding: 8% 0 0;
+    width: 50vw;
+    padding: 5vw 0;
     margin: auto;
 }
 .emailConfirmation-page .form .emailConfirmation {
     margin-top: -31px;
     margin-bottom: 26px;
-}
-.form {
-    position: relative;
-    z-index: 1;
-    background: #FFFFFF;
-    max-width: 360px;
-    margin: 0 auto 100px;
-    padding: 45px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form {
     position: relative;
@@ -61,4 +51,9 @@ body {
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+@media (max-width: 600px) {
+    .emailConfirmation-page {
+        width: 300px;
+    }
 }
