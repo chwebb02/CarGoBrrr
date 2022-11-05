@@ -1,7 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser
 
 # Create your models here
-class VroomUser(models.AbstractBaseUser):
+class VroomUser(AbstractBaseUser):
     phone_number = models.JSONField()
     isActive = models.BooleanField()
     destination = models.charField(max_length=100)
