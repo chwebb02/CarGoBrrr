@@ -1,30 +1,51 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
-
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
 from .models import VroomUser, Ride
 
 # Create your views here
 # Login page
 def index(request):
-    return render(request, '../design/login/login.html')
+    # if this is a POST request we need to process the form data
+    if request.method == "POST":
+        # process the data in form.cleaned_data as required
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page.
+            return HttpResponseRedirect("/vroomvroom/info/")
+        # Else: error message?
+    return render(request, "../design/login/login.html")
+
 
 # Session Info
 def askInfo(request):
-    return render(request, '../design/askInfo/askInfo.html')
+    return render(request, "../design/askInfo/askInfo.html")
+
 
 # Create Account
 def createAccount(request):
-    return render(request, '../design/createLogin/createLoginInfo/createLoginInfo.html')
+    return render(request, "../design/createLogin/createLoginInfo/createLoginInfo.html")
+
 
 # Define account info
 def profileInfo(request):
-    return render(request, '../design/createLogin/profileInfo/profileInfo.html')
+    return render(request, "../design/createLogin/profileInfo/profileInfo.html")
+
 
 # Rider
 def riders(request):
-    return render(request, '../design/rider/rider.html')
+    return render(request, "../design/rider/rider.html")
+
 
 # Driver
 def drivers(request):
-    return render(request, '../design/driver/driverMain.html')
+    return render(request, "../design/driver/driverMain.html")
+
+
+# Logout
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
