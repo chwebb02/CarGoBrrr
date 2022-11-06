@@ -15,16 +15,14 @@
     <div class="r-box">
         <div class="r-box-text">
             {% for ride in all_rides %}
-            {% if ride.driver == user %}
                 <h2 class="r-box-heading">Schedule</h2>
                 <hr/>
                 <div class="r-box-paragraph">
-                    <p>Time Leave: {{ ride.time }}</p>
+                    <p>Time Leave: {{ ride.hour }}:{{ ride.minute }}   {{ ride.month }}/{{ ride.day }}/{{ ride.year }}</p>
                     <p>Location Leaving From: {{ ride.current }}</p>
                     <p>Destination: {{ ride.destination }}</p>
                     <!--<button>Delete</button>-->
                 </div>
-            {% endif %}
             {% endfor %}
         </div>
     </div>
