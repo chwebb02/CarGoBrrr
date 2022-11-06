@@ -89,8 +89,16 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect("../")
 
+# Assign user to rider and return rider main to html
 def assnRider(request):
-    return HttpResponseRedirect("/vroomvroom/riders/")
+    request.user.vroomuser.isDriver = False
+    request.user.vroomuser.save()
 
+    return riders(request)
+
+# Assign user to driver and return driver main html
 def assnDriver(request):
-    return HttpResponseRedirect("/vroomvroom/drivers/")
+    request.user.vroomuser.isDriver = True
+    request.user.vroomuser.save()
+
+    return drivers(request)

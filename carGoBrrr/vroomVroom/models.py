@@ -15,6 +15,8 @@ class VroomUser(models.Model):
     destination.default = ''
     current = models.CharField(max_length=100)
     current.default = ''
+    isDriver = models.BooleanField()
+    isDriver.default = False
 
 class Ride(models.Model):
     destination = models.CharField(max_length=100)
