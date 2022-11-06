@@ -34,7 +34,14 @@ def createAccount(request):
         password = request.POST["password"]
         compPassword = request.POST["compPassword"]
 
-        if password == compPassword:
+        # check for duplicates
+        isDuplicate = False
+        for i in VroomUser.objects.all():
+            if username == i.user.username:
+                isDuplicate = True
+
+        # Create a new acccount
+        if password == compPassword and not isDuplicate:
             userCreate = User.objects.create_user(username, "", password)
             userCreate.save()
 
@@ -111,4 +118,14 @@ def assnDriver(request):
 
 # createASchedule
 def createASchedule(request):
+    if request.method == "POST":
+        time = request.POST["time"]
+        destination = request.POST["destination"]
+        current = request.POST["locationFrom"]
+
+        ride_create = Ride(time=time, destination=destination, current=current, driver=request.user.vroomuser)
+        ride_create.save()
+
+        return HttpResponseRedirect("../drivers/")
+    
     return render(request, "../design/driver/createSchedule/createSchedule.html")
