@@ -8,6 +8,7 @@ urlpatterns = [
     path("createAccount/", views.createAccount, name="createAccount"),
     path("profileInfo/", views.profileInfo, name="profileInfo"),
     path("riders/", views.riders, name="riders"),
+    path("riderLocation/", views.riderLocation, name="rider_location"),
     path("drivers/", views.drivers, name="drivers"),
     path("logout/", views.logout_view, name="logout"),
     path("assnriders/", views.assnRider, name="assign_riders"),

@@ -107,11 +107,11 @@ def assnRider(request):
     request.user.vroomuser.isDriver = False
     request.user.vroomuser.save()
 
-    return riderLocation(request)
+    return HttpResponseRedirect("../riderLocation/")
 
 # Assign user to driver and return driver main html
 def assnDriver(request):
     request.user.vroomuser.isDriver = True
     request.user.vroomuser.save()
 
-    return drivers(request)
+    return HttpResponseRedirect("../drivers/")
