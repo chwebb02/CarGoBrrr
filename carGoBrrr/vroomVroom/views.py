@@ -81,7 +81,7 @@ def riders(request):
         if i.time >= (time.time() + (15 * 60)):
             all_rides.append(i)
         
-    all_rides.sort(reverse=True, key=sortTime)
+    all_rides.sort(key=sortTime)
 
     return render(request, "../design/rider/rider.html", {'all_rides': all_rides})
 
@@ -108,7 +108,7 @@ def drivers(request):
         if i.time >= time.time() and i.driver == request.user.vroomuser:
             all_rides.append(i)
         
-        all_rides.sort(reverse=True, key=sortTime)
+        all_rides.sort(key=sortTime)
     
 
     return render(request, "../design/driver/driverMain.html", {'all_rides': all_rides, 'user':request.user.vroomuser})
@@ -151,7 +151,7 @@ def monthConversion(month):
         
         i += 1
     
-    return
+    return val
 
 def leapYears(year):
     return (int) (year - 2) / 4
@@ -168,8 +168,11 @@ def createASchedule(request):
         destination = request.POST["destination"]
         current = request.POST["locationFrom"]
 
-        year -= 1970
-        time = 60 * (minute + 60 * (hour + 24 * (day + monthConversion(month) + 365 * year + leapYears(year))))
+        time = minute * 60
+        time += hour * 3600
+        time += day * 3600 * 24 + leapYears(year - 1970)
+        time += month * 3600 * 24 * float(monthConversion(month))
+        time += (year - 1970) * 3600 * 24 * 365
 
         ride_create = Ride(time=time, hour=hour, minute=minute, day=day, month=month, year=year, destination=destination, current=current, driver=request.user.vroomuser)
         ride_create.save()
