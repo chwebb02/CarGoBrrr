@@ -46,6 +46,8 @@ def createAccount(request):
         password = request.POST["password"]
         compPassword = request.POST["compPassword"]
 
+        
+
         if password == compPassword:
             userCreate = User.objects.create_user(username, '', password)
             userCreate.save()
@@ -81,14 +83,14 @@ def riders(request):
 # Rider Location (this is where the Ted Bundy-ing begins)
 def riderLocation(request):
     if request.method == "POST":
-        destination = request.POST["desination"]
+        destination = request.POST["destination"]
         current = request.POST["current"]
 
         request.user.vroomuser.destination = destination
         request.user.vroomuser.current = current
         request.user.vroomuser.save()
 
-        return riders(request)  
+        return HttpResponseRedirect("../riders/")
 
     return render(request, "../design/askInfo/riderLocation/riderLocation.html")
 
