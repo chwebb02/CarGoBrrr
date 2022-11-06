@@ -94,7 +94,9 @@ def riderLocation(request):
 
 # Driver
 def drivers(request):
-    return render(request, "../design/driver/driverMain.html")
+    all_rides = Ride.objects.all()
+
+    return render(request, "../design/driver/driverMain.html", {'all_rides': all_rides, 'user':request.user.vroomuser})
 
 
 # Logout
