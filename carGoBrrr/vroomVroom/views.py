@@ -81,12 +81,11 @@ def riders(request):
         if i.time >= (time.time() + (15 * 60)):
             all_rides.append(i)
         
-    all_rides.sort(reverse=True, key=sortTime)
+    all_rides.sort(key=sortTime)
 
     return render(request, "../design/rider/rider.html", {'all_rides': all_rides})
 
 
-# Rider Location (this is where the Ted Bundy-ing begins)
 def riderLocation(request):
     if request.method == "POST":
         destination = request.POST["destination"]
@@ -108,7 +107,7 @@ def drivers(request):
         if i.time >= time.time() and i.driver == request.user.vroomuser:
             all_rides.append(i)
         
-        all_rides.sort(reverse=True, key=sortTime)
+        all_rides.sort(key=sortTime)
     
 
     return render(request, "../design/driver/driverMain.html", {'all_rides': all_rides, 'user':request.user.vroomuser})
@@ -159,20 +158,16 @@ def leapYears(year):
 # createASchedule
 def createASchedule(request):
     if request.method == "POST":
-        hour = float(request.POST["hour"])
-        minute = float(request.POST["minute"])
-
-        day = float(request.POST["day"])
-        month = float(request.POST["month"])
-        year = float(request.POST["year"])
+        hour = int(request.POST["hour"])
+        minute = int(request.POST["minute"])
+        day = int(request.POST["day"])
+        month = int(request.POST["month"])
+        year = int(request.POST["year"])
         destination = request.POST["destination"]
         current = request.POST["locationFrom"]
 
-        time = float(minute * 60)
-        time += float(hour * 3600)
-        time += float(day * 3600 * 24 + leapYears(year - 1970))
-        time += float(month * 3600 * 24 * float(monthConversion(month)))
-        time += float((year - 1970) * 3600 * 24 * 365)
+        time = float(24 * 60 * 60 * (day + month * float(365/12) + (year - 1970) * 365))
+        time += float(60 * (minute + 60 * hour))
 
         ride_create = Ride(time=time, hour=hour, minute=minute, day=day, month=month, year=year, destination=destination, current=current, driver=request.user.vroomuser)
         ride_create.save()
