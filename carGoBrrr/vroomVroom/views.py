@@ -72,7 +72,9 @@ def profileInfo(request):
 
 # Rider
 def riders(request):
-    return render(request, "../design/rider/rider.html")
+    all_rides = Ride.objects.all()
+
+    return render(request, "../design/rider/rider.html", {'all_rides': all_rides})
 
 
 # Rider Location (this is where the Ted Bundy-ing begins)

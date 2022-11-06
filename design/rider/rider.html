@@ -14,14 +14,16 @@
     </div>
     <div class="r-box">
         <div class="r-box-text">
-            <h2 class="r-box-heading">Driver:</h2>
-            <p>Contact Info:</p>
-            <hr/>
-            <div class="r-box-paragraph">
-                <p>Time Leave:</p>
-                <p>Location Leaving From:</p>
-                <p>Destination:</p>
-            </div>
+            {% for ride in all_rides %}
+                <h2 class="r-box-heading">Driver: {{ ride.driver.name }}</h2>
+                <p>Contact Info: {{ ride.driver.phone_number }}</p>
+                <hr/>
+                <div class="r-box-paragraph">
+                    <p>Time Leave: {{ ride.time }}</p>
+                    <p>Location Leaving From: {{ ride.current }}</p>
+                    <p>Destination: {{ ride.destination }}</p>
+                </div>
+            {% endfor %}
         </div>
     </div>
     <div class="sticky">
