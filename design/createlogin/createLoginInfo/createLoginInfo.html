@@ -15,13 +15,14 @@
                 </div>
             </div>
             <hr/>
-            <form class="form-body">
+            <form class="form-body" method="post">
+                {% csrf_token %}
                 <p>What username would you like to use?</p>
-                <input type="text" placeholder="Username"/>
+                <input id="username" type="text" name="username" value="{{ username }}" placeholder="Username"  maxlength=64>
                 <p>What password would you like to use?</p>
-                <input type="password" placeholder="Password"/>
+                <input id="password" type="text" name="password" value="{{ password }}" placeholder="Password"  maxlength=128>
                 <p>Please confirm your password</p>
-                <input type="password" placeholder="Password"/>
+                <input id="compPassword" type="text" name="compPassword" value="{{ compPassword }}" placeholder="Password"  maxlength=128>
                 <p><button>submit</button></p>
             </form>
         </div>
