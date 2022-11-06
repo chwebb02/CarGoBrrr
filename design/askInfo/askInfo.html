@@ -19,9 +19,13 @@
                 {% csrf_token %}
                 <p>Which role are you choosing?</p>
                 <div class="role">
-                    <button><a href="../assnriders">rider</a></button>
+                    <form>
+                        <button formaction="../assnriders/">Rider</button>
+                    </form>
                     <p> OR </p>
-                    <button><a href="../assndrivers">driver</a></button>
+                    <form>
+                        <button formaction="../assndrivers/">Driver</button>
+                    </form>
                 </div>
             </form>
         </div>
