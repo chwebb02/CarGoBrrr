@@ -81,14 +81,14 @@ def riders(request):
 # Rider Location (this is where the Ted Bundy-ing begins)
 def riderLocation(request):
     if request.method == "POST":
-        destination = request.POST["destination"]
+        destination = request.POST["desination"]
         current = request.POST["current"]
 
         request.user.vroomuser.destination = destination
         request.user.vroomuser.current = current
         request.user.vroomuser.save()
 
-        return HttpResponseRedirect("../riders/")
+        return riders(request)  
 
     return render(request, "../design/askInfo/riderLocation/riderLocation.html")
 
