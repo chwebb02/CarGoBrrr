@@ -13,5 +13,6 @@ urlpatterns = [
     path("logout/", views.logout_view, name="logout"),
     path("assnriders/", views.assnRider, name="assign_riders"),
     path("assndrivers/", views.assnDriver, name="assign_drivers"),
+    path("createASchedule/", views.createASchedule, name="create_a_schedule"),
     path("", views.index, name="index")
 ]

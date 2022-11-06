@@ -15,13 +15,14 @@
                 </div>
             </div>
             <hr/>
-            <form class="form-body">
+            <form class="form-body" method="post">
+                {% csrf_token %}
                 <p>What time are you leaving?</p>
-                <input type="text" placeholder="Time"/>
+                <input type="text" placeholder="Time" name="time" id="time" value="{{ time }}"/>
                 <p>Where are you leaving from?</p>
-                <input type="text" placeholder="Location From"/>
+                <input type="text" placeholder="Location From" name="locationFrom" id="locationFrom" value="{{ locationFrom }}"/>
                 <p>Where are you going to?</p>
-                <input type="text" placeholder="Destination"/>
+                <input type="text" placeholder="Destination" name="destination" id="destination" value="{{ destination }}"/>
                 <p><button>submit</button></p>
             </form>
         </div>

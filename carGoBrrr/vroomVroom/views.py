@@ -108,3 +108,7 @@ def assnDriver(request):
     request.user.vroomuser.save()
 
     return HttpResponseRedirect("../drivers/")
+
+# createASchedule
+def createASchedule(request):
+    return render(request, "../design/driver/createSchedule/createSchedule.html")
