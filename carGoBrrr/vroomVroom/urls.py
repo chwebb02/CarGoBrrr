@@ -10,5 +10,7 @@ urlpatterns = [
     path("riders/", views.riders, name="riders"),
     path("drivers/", views.drivers, name="drivers"),
     path("logout/", views.logout_view, name="logout"),
-    path("", views.index, name="index"),
+    path("assnriders/", views.assnRider, name="assign_riders"),
+    path("assndrivers/", views.assnDriver, name="assign_drivers"),
+    path("", views.index, name="index")
 ]
