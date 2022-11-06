@@ -78,6 +78,19 @@ def profileInfo(request):
 def riders(request):
     return render(request, "../design/rider/rider.html")
 
+# Rider Location (this is where the Ted Bundy-ing begins)
+def riderLocation(request):
+    if request.method == "POST":
+        destination = request.POST["destination"]
+        current = request.POST["current"]
+
+        request.user.vroomuser.destination = destination
+        request.user.vroomuser.current = current
+        request.user.vroomuser.save()
+
+        return riders(request)  
+
+    return render(request, "../design/askInfo/riderLocation/riderLocation.html")
 
 # Driver
 def drivers(request):
@@ -94,7 +107,7 @@ def assnRider(request):
     request.user.vroomuser.isDriver = False
     request.user.vroomuser.save()
 
-    return riders(request)
+    return riderLocation(request)
 
 # Assign user to driver and return driver main html
 def assnDriver(request):
