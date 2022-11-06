@@ -19,7 +19,7 @@
                 {% csrf_token %}
                 <p>What time are you leaving?</p>
                 <p>(please make sure to put it in 24hr time)</p>
-                <input type="text" placeholder="00" name="hour" id="time" value="{{ hour }} " maxlength=2/>
+                <input type="text" placeholder="00" name="hour" id="time" value="{{ hour }}" maxlength=2/>
                 <input type="text" placeholder="00" name="minute" id="time" value="{{ minute }}" maxlength=2/>
                 <input type="text" placeholder="MM" name="month" id="month" value="{{ month }}" maxlength=2/>
                 <input type="text" placeholder="DD" name="day" id="day" value="{{ day }}" maxlength=2/>
