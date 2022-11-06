@@ -62,8 +62,11 @@ def createAccount(request):
 # Define account info
 def profileInfo(request):
     if request.method == "POST":
-        request.user.vroomuser.name = request.POST["name"]
-        request.user.vroomuser.phone_number = request.POST["phone_number"]
+        name = request.POST["name"]
+        phone_number = request.POST["phone_number"]
+
+        request.user.vroomuser.name = name
+        request.user.vroomuser.phone_number = phone_number
         request.user.vroomuser.save()
 
         return HttpResponseRedirect("../info")
@@ -78,8 +81,11 @@ def riders(request):
 # Rider Location (this is where the Ted Bundy-ing begins)
 def riderLocation(request):
     if request.method == "POST":
-        request.user.vroomuser.destination = request.POST["desination"]
-        request.user.vroomuser.current = request.POST["current"]
+        destination = request.POST["destination"]
+        current = request.POST["current"]
+
+        request.user.vroomuser.destination = destination
+        request.user.vroomuser.current = current
         request.user.vroomuser.save()
 
         return HttpResponseRedirect("../riders/")
