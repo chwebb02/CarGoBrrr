@@ -100,7 +100,6 @@ def riderLocation(request):
 
     return render(request, "../design/askInfo/riderLocation/riderLocation.html")
 
-
 # Driver
 def drivers(request):
     all_rides = []
@@ -136,15 +135,43 @@ def assnDriver(request):
 
     return HttpResponseRedirect("../drivers/")
 
+def monthConversion(month):
+    if month == 1:
+        return 0
+    if month == 2:
+        return 31
+    
+    i = 3
+    val = 31 + 28
+    while i < month:
+        if i % 2 == 0:
+            val += 31
+        else:
+            val += 30
+        
+        i += 1
+    
+    return
+
+def leapYears(year):
+    return (int) (year - 2) / 4
+
 # createASchedule
 def createASchedule(request):
     if request.method == "POST":
-        time = float(request.POST["time"])
+        hour = float(request.POST["hour"])
+        minute = float(request.POST["minute"])
+
+        day = float(request.POST["day"])
+        month = float(request.POST["month"])
+        year = float(request.POST["year"])
         destination = request.POST["destination"]
         current = request.POST["locationFrom"]
 
+        year -= 1970
+        time = 60 * (minute + 60 * (hour + 24 * (day + monthConversion(month) + 365 * year + leapYears(year))))
 
-        ride_create = Ride(time=time, destination=destination, current=current, driver=request.user.vroomuser)
+        ride_create = Ride(time=time, hour=hour, minute=minute, day=day, month=month, year=year, destination=destination, current=current, driver=request.user.vroomuser)
         ride_create.save()
 
         return HttpResponseRedirect("../drivers/")
