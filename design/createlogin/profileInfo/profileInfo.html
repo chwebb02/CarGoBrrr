@@ -16,13 +16,12 @@
                 </div>
             </div>
             <hr/>
-            <form class="form-body">
+            <form class="form-body" method="post">
+                {% csrf_token %}
                 <p>What is your first name?</p>
-                <input type="text" placeholder="First Name"/>
-                <p>What is your last name?</p>
-                <input type="text" placeholder="Last Name"/>
+                <input id="name" type="text" name="name" value="{{ name }}" placeholder="First name"  maxlength=64>
                 <p>What is your phone number?</p>
-                <input type="text" placeholder="Phone Number"/>
+                <input id="phone_number" type="text" name="phone_number" value="{{ phone_number }}" placeholder="XXXXXXXXXX"  maxlength=10>
                 <p><button>submit</button></p>
             </form>
         </div>
