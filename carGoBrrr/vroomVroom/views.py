@@ -38,7 +38,7 @@ def createAccount(request):
             userCreate = User.objects.create_user(username, '', password)
             userCreate.save()
 
-            vroomUserCreate = VroomUser(user=userCreate, destination='test')
+            vroomUserCreate = VroomUser(user=userCreate)
             vroomUserCreate.save()
             
             login(request, userCreate)
@@ -49,6 +49,16 @@ def createAccount(request):
 
 # Define account info
 def profileInfo(request):
+    if request.method == "POST":
+        name = request.POST["name"]
+        phone_number = request.POST["phone_number"]
+
+        request.user.vroomuser.name = name
+        request.user.vroomuser.phone_number = phone_number
+        request.user.vroomuser.save()
+
+        return HttpResponseRedirect("../info")
+
     return render(request, "../design/createLogin/profileInfo/profileInfo.html")
 
 
@@ -65,4 +75,4 @@ def drivers(request):
 # Logout
 def logout_view(request):
     logout(request)
-    # Redirect to a success page.
+    return HttpResponseRedirect("../")

@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 class VroomUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user.default = None
+    name = models.CharField(max_length=64)
+    name.default = ''
     phone_number = models.JSONField()
     phone_number.default = list
     isActive = models.BooleanField()
