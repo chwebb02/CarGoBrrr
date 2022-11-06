@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from .models import VroomUser, Ride
 
+from django.contrib.auth.models import User
+
 # Create your views here
 # Login page
 def index(request):
