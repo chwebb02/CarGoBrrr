@@ -23,19 +23,7 @@ def index(request):
 
 
 # Session Info
-   # /*userCreate = User.objects.create_user('fsmith7','','testpass')
-   # userCreate.save()
-   # vroomUserCreate = VroomUser(user=userCreate, destination='ThisIsADestination')
-   # vroomUserCreate.save()
-   # userGet = User.objects.get(username='fsmith7')
-   ## destination = userGet.vroomuser.destination
-    #print(destination)#
 def askInfo(request):
-    #if request.method =="POST":
-       # driver=request.POST["driver"]
-      #  print(rider)
-       # print(driver)
-      #  print("^driver here^")
     return render(request, "../design/askInfo/askInfo.html")
 
 
@@ -46,19 +34,18 @@ def createAccount(request):
         password = request.POST["password"]
         compPassword = request.POST["compPassword"]
 
-        
-
         if password == compPassword:
-            userCreate = User.objects.create_user(username, '', password)
+            userCreate = User.objects.create_user(username, "", password)
             userCreate.save()
 
             vroomUserCreate = VroomUser(user=userCreate)
             vroomUserCreate.save()
-            
+
             login(request, userCreate)
             return HttpResponseRedirect("../profileInfo/")
 
     return render(request, "../design/createLogin/createLoginInfo/createLoginInfo.html")
+# UNIQUE USER BLOCKER!
 
 
 # Define account info
@@ -80,6 +67,7 @@ def profileInfo(request):
 def riders(request):
     return render(request, "../design/rider/rider.html")
 
+
 # Rider Location (this is where the Ted Bundy-ing begins)
 def riderLocation(request):
     if request.method == "POST":
@@ -94,6 +82,7 @@ def riderLocation(request):
 
     return render(request, "../design/askInfo/riderLocation/riderLocation.html")
 
+
 # Driver
 def drivers(request):
     return render(request, "../design/driver/driverMain.html")
@@ -104,12 +93,14 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect("../")
 
+
 # Assign user to rider and return rider main to html
 def assnRider(request):
     request.user.vroomuser.isDriver = False
     request.user.vroomuser.save()
 
     return HttpResponseRedirect("../riderLocation/")
+
 
 # Assign user to driver and return driver main html
 def assnDriver(request):
