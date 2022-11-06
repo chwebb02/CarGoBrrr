@@ -82,7 +82,7 @@ def riderLocation(request):
         request.user.vroomuser.current = request.POST["current"]
         request.user.vroomuser.save()
 
-        return riders(request)  
+        return HttpResponseRedirect("../riders/")
 
     return render(request, "../design/askInfo/riderLocation/riderLocation.html")
 
