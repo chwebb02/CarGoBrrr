@@ -81,7 +81,7 @@ def riders(request):
         if i.time >= (time.time() + (15 * 60)):
             all_rides.append(i)
         
-    all_rides.sort(key=sortTime)
+    all_rides.sort(reverse=True, key=sortTime)
 
     return render(request, "../design/rider/rider.html", {'all_rides': all_rides})
 
@@ -108,7 +108,7 @@ def drivers(request):
         if i.time >= time.time() and i.driver == request.user.vroomuser:
             all_rides.append(i)
         
-        all_rides.sort(key=sortTime)
+        all_rides.sort(reverse=True, key=sortTime)
     
 
     return render(request, "../design/driver/driverMain.html", {'all_rides': all_rides, 'user':request.user.vroomuser})
