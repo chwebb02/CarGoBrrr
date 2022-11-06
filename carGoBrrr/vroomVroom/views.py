@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import VroomUser, Ride
 
 from django.contrib.auth.models import User
+import time
 
 # Create your views here
 # Login page
@@ -69,10 +70,18 @@ def profileInfo(request):
 
     return render(request, "../design/createLogin/profileInfo/profileInfo.html")
 
+def sortTime(obj):
+    return obj.time
 
 # Rider
 def riders(request):
-    all_rides = Ride.objects.all()
+    all_rides = []
+    for i in Ride.objects.all():
+        # Only return available rides 15 minutes or greater into the future
+        if i.time >= (time.time() + (15 * 60)):
+            all_rides.append(i)
+        
+    all_rides.sort(reverse=True, key=sortTime)
 
     return render(request, "../design/rider/rider.html", {'all_rides': all_rides})
 
@@ -94,7 +103,14 @@ def riderLocation(request):
 
 # Driver
 def drivers(request):
-    all_rides = Ride.objects.all()
+    all_rides = []
+    for i in Ride.objects.all():
+        # only return current and future requests for the logged-in user
+        if i.time >= time.time() and i.driver == request.user.vroomuser:
+            all_rides.append(i)
+        
+        all_rides.sort(reverse=True, key=sortTime)
+    
 
     return render(request, "../design/driver/driverMain.html", {'all_rides': all_rides, 'user':request.user.vroomuser})
 
@@ -123,9 +139,10 @@ def assnDriver(request):
 # createASchedule
 def createASchedule(request):
     if request.method == "POST":
-        time = request.POST["time"]
+        time = float(request.POST["time"])
         destination = request.POST["destination"]
         current = request.POST["locationFrom"]
+
 
         ride_create = Ride(time=time, destination=destination, current=current, driver=request.user.vroomuser)
         ride_create.save()

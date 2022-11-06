@@ -21,6 +21,6 @@ class VroomUser(models.Model):
 class Ride(models.Model):
     destination = models.CharField(max_length=100)
     current = models.CharField(max_length=100)
-    time = models.CharField(max_length=100)
+    time = models.FloatField()
     driver = models.ForeignKey(VroomUser, on_delete=models.CASCADE)
     driver.default = None
