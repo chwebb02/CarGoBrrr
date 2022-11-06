@@ -31,7 +31,10 @@
             </form>
         </div>
         <div class="back">
-            <button>Back</button>
+            <form>
+                {% csrf_token %}
+                <button formaction="../info/">Back</button>
+            </form>
         </div>
     </div>
 </body>
