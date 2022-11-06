@@ -7,22 +7,28 @@
 </head>
 <body>
     <div class="header">
-        <h1>Current Schedules</h1>
+        <h1>Driver Page</h1>
+        <hr/>
+        <h2>Schedules</h2>
     </div>
-    <!-- i figured we would somehow query the database for the riders and they make boxes each time. Something like the polls thing on the django html form -->
     <div class="r-box">
         <div class="r-box-text">
-            <h3 class="r-box-heading">Riders</h3>
+            <h2 class="r-box-heading">Schedule</h2>
             <hr/>
             <div class="r-box-paragraph">
-                <p>
-                Rider Info:
-                name: 
-                contact info: 
-                </p>
+                <p>Time Leave:</p>
+                <p>Location Leaving From:</p>
+                <p>Destination:</p>
+                <button>Delete</button>
             </div>
-            <button>Accept</button>
-            <button>Decline</button>
+        </div>
+    </div>
+    <div class="sticky">
+        <div class="createSchedule">
+            <button>Create A Schedule</button>
+        </div>
+        <div class="back">
+            <button>Back</button>
         </div>
     </div>
 </body>

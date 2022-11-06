@@ -1,8 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .header {
-    font-family: Roboto;
-    background-color: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFFFFF;
+    
 }
 
 .r-box {
@@ -12,22 +15,36 @@
     min-width: 20vw;
     max-width: 70vw;
     margin: 0 auto 100px;
-    padding: 20px, 20px, 20px, 20px;
-    text-align: center;
+    padding: 50px;
+    text-align: start;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .r-box-text {
   width: 100%;
   height: 100%;
-  padding: 10px 5px 10px 0;
+  padding: 0px 10px 10px 10px;
 }
 
 .r-box-heading {
-  font-family: Rubik, sans-serif;
-  text-align: start;
-  margin-bottom: 4px;
-  color: #474747;
+    font-size: larger;
+    font-family: Rubik, sans-serif;
+    text-align: start;
+    margin-bottom: 4px;
+    color: #474747;
+}
+
+.r-box button{
+    font-family: Rubik, sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #b56576;
+    border: 0;
+    padding: 10px;
+    color: #ffffff;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
 }
 
 body {
@@ -35,4 +52,53 @@ body {
     background-image: linear-gradient(90deg,#E56B6F,#EAAC8B);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
+}
+
+.sticky .createSchedule{
+    display: block;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 40px;
+    z-index: 999;
+    font-size: 10px;
+    text-align: right;
+    background-color: #6d597a;
+}
+
+.sticky .createSchedule button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #328f8a;
+    border: 0;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.sticky .back{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    height: 40px;
+    z-index: 999;
+}
+
+.sticky .back button{
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #328f8a;
+    border: 0;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 16px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
