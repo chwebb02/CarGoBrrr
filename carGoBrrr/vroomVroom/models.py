@@ -22,15 +22,15 @@ class Ride(models.Model):
     destination = models.CharField(max_length=100)
     current = models.CharField(max_length=100)
     time = models.FloatField()
-    hour = models.FloatField()
+    hour = models.IntegerField()
     hour.default = 0
-    minute = models.FloatField()
+    minute = models.IntegerField()
     minute.default = 1
-    day = models.FloatField()
+    day = models.IntegerField()
     day.default = 1
-    month = models.FloatField()
+    month = models.IntegerField()
     month.default = 1
-    year = models.FloatField()
+    year = models.IntegerField()
     year.default = 1970
     driver = models.ForeignKey(VroomUser, on_delete=models.CASCADE)
     driver.default = None

@@ -168,11 +168,11 @@ def createASchedule(request):
         destination = request.POST["destination"]
         current = request.POST["locationFrom"]
 
-        time = minute * 60
-        time += hour * 3600
-        time += day * 3600 * 24 + leapYears(year - 1970)
-        time += month * 3600 * 24 * float(monthConversion(month))
-        time += (year - 1970) * 3600 * 24 * 365
+        time = float(minute * 60)
+        time += float(hour * 3600)
+        time += float(day * 3600 * 24 + leapYears(year - 1970))
+        time += float(month * 3600 * 24 * float(monthConversion(month)))
+        time += float((year - 1970) * 3600 * 24 * 365)
 
         ride_create = Ride(time=time, hour=hour, minute=minute, day=day, month=month, year=year, destination=destination, current=current, driver=request.user.vroomuser)
         ride_create.save()
