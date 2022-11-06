@@ -11,5 +11,6 @@ urlpatterns = [
     path("drivers/", views.drivers, name="drivers"),
     path("logout/", views.logout, name="logout"),
     path("assnriders/", views.assnRider, name="assign_riders"),
-    path("assndrivers/", views.assnDriver, name="assign_drivers")
+    path("assndrivers/", views.assnDriver, name="assign_drivers"),
+    path("", views.index, name="index")
 ]

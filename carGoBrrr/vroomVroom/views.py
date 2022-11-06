@@ -15,7 +15,7 @@ def index(request):
         if user is not None:
             login(request, user)
             # Redirect to a success page.
-            return HttpResponseRedirect("/vroomvroom/info/")
+            return HttpResponseRedirect("../info/")
         # Else: error message?
     return render(request, "../design/login/login.html")
 
@@ -39,6 +39,21 @@ def askInfo(request):
 
 # Create Account
 def createAccount(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        compPassword = request.POST["compPassword"]
+
+        if password == compPassword:
+            userCreate = User.objects.create_user(username, '', password)
+            userCreate.save()
+
+            vroomUserCreate = VroomUser(user=userCreate, destination='test')
+            vroomUserCreate.save()
+            
+            login(request, userCreate)
+            return HttpResponseRedirect("../profileInfo/")
+
     return render(request, "../design/createLogin/createLoginInfo/createLoginInfo.html")
 
 
