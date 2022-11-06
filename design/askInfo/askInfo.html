@@ -15,13 +15,14 @@
                 </div>
             </div>
             <hr/>
-            <form class="form-body">
+            <form class="form-body" method="post">
+                {% csrf_token %}
                 <p>Which role are you choosing?</p>
                 <div class="role">
-                    <input type="radio" name="role">Rider
-                    <input type="radio" name="role">Driver
+                    <button><a href="../assnriders">rider</a></button>
+                    <p> OR </p>
+                    <button><a href="../assndrivers">driver</a></button>
                 </div>
-                <button>Done</button>
             </form>
         </div>
     </div>

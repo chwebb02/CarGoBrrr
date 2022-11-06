@@ -3,8 +3,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from .models import VroomUser, Ride
 
-from django.contrib.auth.models import User
-
 # Create your views here
 # Login page
 def index(request):
@@ -23,7 +21,19 @@ def index(request):
 
 
 # Session Info
+   # /*userCreate = User.objects.create_user('fsmith7','','testpass')
+   # userCreate.save()
+   # vroomUserCreate = VroomUser(user=userCreate, destination='ThisIsADestination')
+   # vroomUserCreate.save()
+   # userGet = User.objects.get(username='fsmith7')
+   ## destination = userGet.vroomuser.destination
+    #print(destination)#
 def askInfo(request):
+    #if request.method =="POST":
+       # driver=request.POST["driver"]
+      #  print(rider)
+       # print(driver)
+      #  print("^driver here^")
     return render(request, "../design/askInfo/askInfo.html")
 
 
@@ -66,3 +76,9 @@ def drivers(request):
 def logout_view(request):
     logout(request)
     # Redirect to a success page.
+
+def assnRider(request):
+    return HttpResponseRedirect("/vroomvroom/riders/")
+
+def assnDriver(request):
+    return HttpResponseRedirect("/vroomvroom/drivers/")
